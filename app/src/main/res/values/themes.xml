@@ -1,9 +1,20 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.JsonPlaceHolder" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="textInputStyle">@style/Widget.JsonPlaceHolder.TextInputLayout</item>
     </style>
 
     <style name="Theme.JsonPlaceHolder" parent="Base.Theme.JsonPlaceHolder" />
+
+    <style name="Widget.JsonPlaceHolder.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.JsonPlaceHolder.TextInput</item>
+        <item name="boxBackgroundColor">?attr/colorSurface</item>
+    </style>
+
+    <style name="ThemeOverlay.JsonPlaceHolder.TextInput" parent="">
+        <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox</item>
+    </style>
+
 </resources>

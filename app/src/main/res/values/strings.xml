@@ -7,4 +7,8 @@
     <string name="name">Name</string>
     <string name="address">Address</string>
     <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="title">User data</string>
+    <string name="no_id">You must enter a valid user ID</string>
+    <string name="address_two_lines">%1s %2s\n%3s %4s</string>
 </resources>
