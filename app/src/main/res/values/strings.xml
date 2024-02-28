@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JsonPlaceHolder</string>
+    <string name="hint_id">User ID</string>
+    <string name="search_id">Search user by ID</string>
+    <string name="add_user">Add a new user</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="email">Email</string>
+</resources>
