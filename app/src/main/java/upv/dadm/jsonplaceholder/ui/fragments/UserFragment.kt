@@ -15,6 +15,7 @@ import upv.dadm.jsonplaceholder.R
 import upv.dadm.jsonplaceholder.databinding.FragmentUserBinding
 import upv.dadm.jsonplaceholder.model.User
 import upv.dadm.jsonplaceholder.ui.viewmodels.UserViewModel
+import java.io.IOException
 
 class UserFragment : Fragment(R.layout.fragment_user) {
 
@@ -37,12 +38,7 @@ class UserFragment : Fragment(R.layout.fragment_user) {
             ) as InputMethodManager)
                 .hideSoftInputFromWindow(button.windowToken, 0)
             // Display the entered Id
-            if (binding.etSearchById.text.isNullOrBlank())
-                Snackbar.make(
-                    binding.root,
-                    getString(R.string.no_id),
-                    Snackbar.LENGTH_SHORT
-                ).show()
+            if (binding.etSearchById.text.isNullOrBlank()) displayMessage(R.string.no_id)
             else viewModel.getUserById(binding.etSearchById.text.toString())
             // Clear the EditText
             binding.etSearchById.text?.clear()
@@ -87,6 +83,33 @@ class UserFragment : Fragment(R.layout.fragment_user) {
             }
         }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.throwable.collect { throwable ->
+                    if (throwable != null) {
+                        displayMessage(
+                            when (throwable) {
+                                is IOException -> R.string.no_result
+                                else -> R.string.unexpected
+                            }
+                        )
+                        viewModel.resetError()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun displayMessage(messageId: Int) {
+        displayMessage(getString(messageId))
+    }
+
+    private fun displayMessage(message: String) {
+        Snackbar.make(
+            binding.root,
+            message,
+            Snackbar.LENGTH_SHORT
+        ).show()
     }
 
     override fun onDestroyView() {

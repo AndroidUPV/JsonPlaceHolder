@@ -11,6 +11,9 @@ class UserViewModel : ViewModel() {
     private val _user = MutableStateFlow<User?>(null)
     val user = _user.asStateFlow()
 
+    private val _throwable = MutableStateFlow<Throwable?>(null)
+    val throwable = _throwable.asStateFlow()
+
     fun getUserById(id: String) {
         _user.update {
             User(
@@ -48,4 +51,7 @@ class UserViewModel : ViewModel() {
         _user.update { newUser }
     }
 
+    fun resetError() {
+        _throwable.update { null }
+    }
 }
