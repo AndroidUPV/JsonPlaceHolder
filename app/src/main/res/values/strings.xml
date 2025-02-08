@@ -12,5 +12,5 @@
     <string name="no_id">You must enter a valid user ID</string>
     <string name="address_two_lines">%1s %2s\n%3s %4s</string>
     <string name="no_result">It was not possible to complete the requested operation.</string>
-    <string name="unexpected">An unexpected problme occurred.</string>
+    <string name="unexpected">An unexpected problem occurred.</string>
 </resources>
