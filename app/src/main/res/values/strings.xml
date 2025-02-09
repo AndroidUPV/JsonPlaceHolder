@@ -13,4 +13,6 @@
     <string name="address_two_lines">%1s %2s\n%3s %4s</string>
     <string name="no_result">It was not possible to complete the requested operation.</string>
     <string name="unexpected">An unexpected problem occurred.</string>
+    <string name="user_not_found">There is no user with the provided ID</string>
+    <string name="no_internet">Connection to Intenet is not available</string>
 </resources>

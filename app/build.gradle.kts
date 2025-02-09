@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.devtools.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.devtools.ksp)
 }
 
 android {
@@ -51,12 +51,12 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.navigation.fragment)
-    implementation(libs.moshi.ktx)
+    implementation(libs.squareup.moshi)
     implementation(libs.retrofit)
-    implementation(libs.retrofit.moshi)
-    implementation(libs.hilt)
-    ksp(libs.moshi.codegen)
-    ksp(libs.hilt.compiler)
+    implementation(libs.squareup.converter.moshi)
+    implementation(libs.dagger.hilt)
+    ksp(libs.squareup.moshi.codegen)
+    ksp(libs.dagger.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

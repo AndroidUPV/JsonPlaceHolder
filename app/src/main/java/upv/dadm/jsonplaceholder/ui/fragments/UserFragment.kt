@@ -15,6 +15,8 @@ import upv.dadm.jsonplaceholder.R
 import upv.dadm.jsonplaceholder.databinding.FragmentUserBinding
 import upv.dadm.jsonplaceholder.model.User
 import upv.dadm.jsonplaceholder.ui.viewmodels.UserViewModel
+import upv.dadm.jsonplaceholder.utils.NoInternetException
+import upv.dadm.jsonplaceholder.utils.UserNotFoundException
 import java.io.IOException
 
 class UserFragment : Fragment(R.layout.fragment_user) {
@@ -90,6 +92,8 @@ class UserFragment : Fragment(R.layout.fragment_user) {
                         displayMessage(
                             when (throwable) {
                                 is IOException -> R.string.no_result
+                                is NoInternetException -> R.string.no_internet
+                                is UserNotFoundException -> R.string.user_not_found
                                 else -> R.string.unexpected
                             }
                         )
